@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import { LatestInvoice } from '@/app/lib/definitions';
 import { fetchLatestInvoices } from '@/app/lib/data';
-
+import Link from 'next/link';
 export default async function LatestInvoices(){
   const latestInvoices = await fetchLatestInvoices();
   return (
@@ -53,10 +53,10 @@ export default async function LatestInvoices(){
             );
           })}
         </div> 
-        <div className="flex items-center pb-2 pt-6">
+        <div className="flex items-center gap-5">
           <ArrowPathIcon className="h-5 w-5 text-gray-500" />
-          <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>
-          <Link href="/dashboard/invoices" className="bg-blue-500 text-white px-4 py-2 rounded-lg text-center">View More</Link>
+          <h3 className="text-sm text-gray-500 ">Updated just now</h3>
+          <Link href="/dashboard/invoices" className="ml-auto bg-gray-100 hover:bg-blue-100 hover:text-blue-500 text-black px-4 py-2 rounded-lg text-center">View More</Link>
         </div>
       </div>
     </div>
