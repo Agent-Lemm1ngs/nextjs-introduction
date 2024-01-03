@@ -6,7 +6,7 @@ import {Suspense} from 'react';
 import { fetchCardData } from '@/app/lib/data'; 
 import { RevenueChartSkeleton, LatestInvoicesSkeleton,CardsSkeleton } from '@/app/ui/skeletons';
 import CardWrapper from '@/app/ui/dashboard/cards';
-
+import Link from 'next/link';
 export default async function Page() {
   
   const {
@@ -30,10 +30,11 @@ export default async function Page() {
       <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
-        <Suspense fallback={<LatestInvoicesSkeleton />}>
-          <LatestInvoices />
-        </Suspense>
-       
+          <Suspense fallback={<LatestInvoicesSkeleton />} className="flex flex-col" >
+           <LatestInvoices />
+           
+          </Suspense>
+          
       </div>
     </main>
   );
